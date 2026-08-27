@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Graphiz = new PictureBox();
+            ItemImage = new PictureBox();
             Title = new Label();
-            CityName = new Label();
-            Dimension = new Label();
-            theDimension = new Label();
-            Entries = new Label();
-            theEntries = new Label();
-            Military = new Label();
-            theMilitary = new Label();
-            Civil = new Label();
-            theCivilies = new Label();
-            Resources = new Label();
-            theResources = new Label();
-            theName = new Label();
+            Number = new Label();
+            FieldName1 = new Label();
+            FieldValue1 = new Label();
+            FieldName2 = new Label();
+            FieldValue2 = new Label();
+            FieldName3 = new Label();
+            FieldValue3 = new Label();
+            FieldName4 = new Label();
+            FieldValue4 = new Label();
+            FieldName5 = new Label();
+            FieldValue5 = new Label();
+            FieldName6 = new Label();
+            FieldValue6 = new Label();
             NextButton = new PictureBox();
             PreviousButton = new PictureBox();
-            Number = new Label();
             Exit = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)Graphiz).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ItemImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NextButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PreviousButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Exit).BeginInit();
             SuspendLayout();
             // 
-            // Graphiz
+            // ItemImage
             // 
-            Graphiz.Location = new Point(46, 85);
-            Graphiz.Name = "Graphiz";
-            Graphiz.Size = new Size(278, 277);
-            Graphiz.SizeMode = PictureBoxSizeMode.Zoom;
-            Graphiz.TabIndex = 0;
-            Graphiz.TabStop = false;
+            ItemImage.Location = new Point(46, 85);
+            ItemImage.Name = "ItemImage";
+            ItemImage.Size = new Size(278, 277);
+            ItemImage.SizeMode = PictureBoxSizeMode.Zoom;
+            ItemImage.TabIndex = 0;
+            ItemImage.TabStop = false;
             // 
             // Title
             // 
@@ -72,138 +72,148 @@
             Title.TabIndex = 1;
             Title.Text = "Ciudades";
             // 
-            // CityName
+            // Number
             // 
-            CityName.AutoSize = true;
-            CityName.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CityName.ForeColor = SystemColors.ButtonHighlight;
-            CityName.Location = new Point(392, 85);
-            CityName.Name = "CityName";
-            CityName.Size = new Size(87, 21);
-            CityName.TabIndex = 3;
-            CityName.Text = "Nombre:";
+            Number.AutoSize = true;
+            Number.Font = new Font("SimSun-ExtG", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Number.ForeColor = SystemColors.ButtonHighlight;
+            Number.Location = new Point(461, 32);
+            Number.Name = "Number";
+            Number.Size = new Size(138, 27);
+            Number.TabIndex = 18;
+            Number.Text = "Ciudad #1";
             // 
-            // Dimension
+            // FieldName1
             // 
-            Dimension.AutoSize = true;
-            Dimension.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Dimension.ForeColor = SystemColors.ButtonHighlight;
-            Dimension.Location = new Point(392, 125);
-            Dimension.Name = "Dimension";
-            Dimension.Size = new Size(118, 21);
-            Dimension.TabIndex = 4;
-            Dimension.Text = "Dimensión:";
+            FieldName1.AutoSize = true;
+            FieldName1.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName1.ForeColor = Color.MediumSpringGreen;
+            FieldName1.Location = new Point(392, 90);
+            FieldName1.Name = "FieldName1";
+            FieldName1.Size = new Size(94, 21);
+            FieldName1.TabIndex = 3;
+            FieldName1.Text = "Nombre:";
             // 
-            // theDimension
+            // FieldValue1
             // 
-            theDimension.AutoSize = true;
-            theDimension.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theDimension.ForeColor = SystemColors.ButtonHighlight;
-            theDimension.Location = new Point(620, 125);
-            theDimension.Name = "theDimension";
-            theDimension.Size = new Size(98, 21);
-            theDimension.TabIndex = 5;
-            theDimension.Text = "CityName";
+            FieldValue1.AutoSize = true;
+            FieldValue1.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue1.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue1.Location = new Point(540, 90);
+            FieldValue1.Name = "FieldValue1";
+            FieldValue1.Size = new Size(43, 21);
+            FieldValue1.TabIndex = 4;
+            FieldValue1.Text = "---";
             // 
-            // Entries
+            // FieldName2
             // 
-            Entries.AutoSize = true;
-            Entries.BackColor = Color.Black;
-            Entries.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Entries.ForeColor = Color.SpringGreen;
-            Entries.Location = new Point(392, 168);
-            Entries.Name = "Entries";
-            Entries.Size = new Size(208, 21);
-            Entries.TabIndex = 6;
-            Entries.Text = "Puntos de Entrada:";
+            FieldName2.AutoSize = true;
+            FieldName2.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName2.ForeColor = Color.MediumSpringGreen;
+            FieldName2.Location = new Point(392, 130);
+            FieldName2.Name = "FieldName2";
+            FieldName2.Size = new Size(94, 21);
+            FieldName2.TabIndex = 5;
+            FieldName2.Text = "Label2:";
             // 
-            // theEntries
+            // FieldValue2
             // 
-            theEntries.AutoSize = true;
-            theEntries.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theEntries.ForeColor = SystemColors.ButtonHighlight;
-            theEntries.Location = new Point(620, 168);
-            theEntries.Name = "theEntries";
-            theEntries.Size = new Size(98, 21);
-            theEntries.TabIndex = 7;
-            theEntries.Text = "Entradas";
+            FieldValue2.AutoSize = true;
+            FieldValue2.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue2.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue2.Location = new Point(540, 130);
+            FieldValue2.Name = "FieldValue2";
+            FieldValue2.Size = new Size(43, 21);
+            FieldValue2.TabIndex = 6;
+            FieldValue2.Text = "---";
             // 
-            // Military
+            // FieldName3
             // 
-            Military.AutoSize = true;
-            Military.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Military.ForeColor = Color.Red;
-            Military.Location = new Point(392, 212);
-            Military.Name = "Military";
-            Military.Size = new Size(219, 21);
-            Military.TabIndex = 8;
-            Military.Text = "Unidades Militares:";
+            FieldName3.AutoSize = true;
+            FieldName3.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName3.ForeColor = Color.MediumSpringGreen;
+            FieldName3.Location = new Point(392, 170);
+            FieldName3.Name = "FieldName3";
+            FieldName3.Size = new Size(94, 21);
+            FieldName3.TabIndex = 7;
+            FieldName3.Text = "Label3:";
             // 
-            // theMilitary
+            // FieldValue3
             // 
-            theMilitary.AutoSize = true;
-            theMilitary.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theMilitary.ForeColor = SystemColors.ButtonHighlight;
-            theMilitary.Location = new Point(620, 212);
-            theMilitary.Name = "theMilitary";
-            theMilitary.Size = new Size(98, 21);
-            theMilitary.TabIndex = 9;
-            theMilitary.Text = "Entradas";
+            FieldValue3.AutoSize = true;
+            FieldValue3.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue3.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue3.Location = new Point(540, 170);
+            FieldValue3.Name = "FieldValue3";
+            FieldValue3.Size = new Size(43, 21);
+            FieldValue3.TabIndex = 8;
+            FieldValue3.Text = "---";
             // 
-            // Civil
+            // FieldName4
             // 
-            Civil.AutoSize = true;
-            Civil.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Civil.ForeColor = SystemColors.MenuHighlight;
-            Civil.Location = new Point(392, 257);
-            Civil.Name = "Civil";
-            Civil.Size = new Size(197, 21);
-            Civil.TabIndex = 10;
-            Civil.Text = "Unidades Civiles:";
+            FieldName4.AutoSize = true;
+            FieldName4.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName4.ForeColor = Color.MediumSpringGreen;
+            FieldName4.Location = new Point(392, 210);
+            FieldName4.Name = "FieldName4";
+            FieldName4.Size = new Size(94, 21);
+            FieldName4.TabIndex = 9;
+            FieldName4.Text = "Label4:";
             // 
-            // theCivilies
+            // FieldValue4
             // 
-            theCivilies.AutoSize = true;
-            theCivilies.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theCivilies.ForeColor = SystemColors.ButtonHighlight;
-            theCivilies.Location = new Point(620, 257);
-            theCivilies.Name = "theCivilies";
-            theCivilies.Size = new Size(98, 21);
-            theCivilies.TabIndex = 11;
-            theCivilies.Text = "Entradas";
+            FieldValue4.AutoSize = true;
+            FieldValue4.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue4.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue4.Location = new Point(540, 210);
+            FieldValue4.Name = "FieldValue4";
+            FieldValue4.Size = new Size(43, 21);
+            FieldValue4.TabIndex = 10;
+            FieldValue4.Text = "---";
             // 
-            // Resources
+            // FieldName5
             // 
-            Resources.AutoSize = true;
-            Resources.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Resources.ForeColor = SystemColors.ActiveBorder;
-            Resources.Location = new Point(392, 302);
-            Resources.Name = "Resources";
-            Resources.Size = new Size(109, 21);
-            Resources.TabIndex = 12;
-            Resources.Text = "Recursos:";
+            FieldName5.AutoSize = true;
+            FieldName5.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName5.ForeColor = Color.MediumSpringGreen;
+            FieldName5.Location = new Point(392, 250);
+            FieldName5.Name = "FieldName5";
+            FieldName5.Size = new Size(94, 21);
+            FieldName5.TabIndex = 11;
+            FieldName5.Text = "Label5:";
             // 
-            // theResources
+            // FieldValue5
             // 
-            theResources.AutoSize = true;
-            theResources.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theResources.ForeColor = SystemColors.ButtonHighlight;
-            theResources.Location = new Point(620, 302);
-            theResources.Name = "theResources";
-            theResources.Size = new Size(98, 21);
-            theResources.TabIndex = 13;
-            theResources.Text = "Entradas";
+            FieldValue5.AutoSize = true;
+            FieldValue5.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue5.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue5.Location = new Point(540, 250);
+            FieldValue5.Name = "FieldValue5";
+            FieldValue5.Size = new Size(43, 21);
+            FieldValue5.TabIndex = 12;
+            FieldValue5.Text = "---";
             // 
-            // theName
+            // FieldName6
             // 
-            theName.AutoSize = true;
-            theName.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            theName.ForeColor = SystemColors.ButtonHighlight;
-            theName.Location = new Point(620, 85);
-            theName.Name = "theName";
-            theName.Size = new Size(98, 21);
-            theName.TabIndex = 15;
-            theName.Text = "CityName";
+            FieldName6.AutoSize = true;
+            FieldName6.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FieldName6.ForeColor = Color.MediumSpringGreen;
+            FieldName6.Location = new Point(392, 290);
+            FieldName6.Name = "FieldName6";
+            FieldName6.Size = new Size(94, 21);
+            FieldName6.TabIndex = 13;
+            FieldName6.Text = "Label6:";
+            // 
+            // FieldValue6
+            // 
+            FieldValue6.AutoSize = true;
+            FieldValue6.Font = new Font("SimSun-ExtG", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FieldValue6.ForeColor = SystemColors.ButtonHighlight;
+            FieldValue6.Location = new Point(540, 290);
+            FieldValue6.Name = "FieldValue6";
+            FieldValue6.Size = new Size(43, 21);
+            FieldValue6.TabIndex = 14;
+            FieldValue6.Text = "---";
             // 
             // NextButton
             // 
@@ -227,17 +237,6 @@
             PreviousButton.TabStop = false;
             PreviousButton.Click += PreviousButton_Click;
             // 
-            // Number
-            // 
-            Number.AutoSize = true;
-            Number.Font = new Font("SimSun-ExtG", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Number.ForeColor = SystemColors.ButtonHighlight;
-            Number.Location = new Point(506, 25);
-            Number.Name = "Number";
-            Number.Size = new Size(124, 27);
-            Number.TabIndex = 18;
-            Number.Text = "Ciudades";
-            // 
             // Exit
             // 
             Exit.Image = Properties.Resources.salir;
@@ -259,24 +258,24 @@
             Controls.Add(Number);
             Controls.Add(PreviousButton);
             Controls.Add(NextButton);
-            Controls.Add(theName);
-            Controls.Add(theResources);
-            Controls.Add(Resources);
-            Controls.Add(theCivilies);
-            Controls.Add(Civil);
-            Controls.Add(theMilitary);
-            Controls.Add(Military);
-            Controls.Add(theEntries);
-            Controls.Add(Entries);
-            Controls.Add(theDimension);
-            Controls.Add(Dimension);
-            Controls.Add(CityName);
+            Controls.Add(FieldValue6);
+            Controls.Add(FieldName6);
+            Controls.Add(FieldValue5);
+            Controls.Add(FieldName5);
+            Controls.Add(FieldValue4);
+            Controls.Add(FieldName4);
+            Controls.Add(FieldValue3);
+            Controls.Add(FieldName3);
+            Controls.Add(FieldValue2);
+            Controls.Add(FieldName2);
+            Controls.Add(FieldValue1);
+            Controls.Add(FieldName1);
             Controls.Add(Title);
-            Controls.Add(Graphiz);
+            Controls.Add(ItemImage);
             ForeColor = Color.White;
             Name = "Details";
             Text = "Details";
-            ((System.ComponentModel.ISupportInitialize)Graphiz).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ItemImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)NextButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)PreviousButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)Exit).EndInit();
@@ -286,23 +285,23 @@
 
         #endregion
 
-        private PictureBox Graphiz;
+        private PictureBox ItemImage;
         private Label Title;
-        private Label CityName;
-        private Label Dimension;
-        private Label theDimension;
-        private Label Entries;
-        private Label theEntries;
-        private Label Military;
-        private Label theMilitary;
-        private Label Civil;
-        private Label theCivilies;
-        private Label Resources;
-        private Label theResources;
-        private Label theName;
+        private Label Number;
+        private Label FieldName1;
+        private Label FieldValue1;
+        private Label FieldName2;
+        private Label FieldValue2;
+        private Label FieldName3;
+        private Label FieldValue3;
+        private Label FieldName4;
+        private Label FieldValue4;
+        private Label FieldName5;
+        private Label FieldValue5;
+        private Label FieldName6;
+        private Label FieldValue6;
         private PictureBox NextButton;
         private PictureBox PreviousButton;
-        private Label Number;
         private PictureBox Exit;
     }
 }

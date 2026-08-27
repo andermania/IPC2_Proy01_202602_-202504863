@@ -82,6 +82,7 @@
             chapinRescue.SizeMode = PictureBoxSizeMode.Zoom;
             chapinRescue.TabIndex = 5;
             chapinRescue.TabStop = false;
+            chapinRescue.Click += chapinRescue_Click;
             // 
             // chapinFitghter
             // 
@@ -93,6 +94,7 @@
             chapinFitghter.SizeMode = PictureBoxSizeMode.Zoom;
             chapinFitghter.TabIndex = 6;
             chapinFitghter.TabStop = false;
+            chapinFitghter.Click += chapinFighter_Click;
             // 
             // history
             // 
@@ -113,6 +115,7 @@
             mission.SizeMode = PictureBoxSizeMode.Zoom;
             mission.TabIndex = 8;
             mission.TabStop = false;
+            mission.Click += mission_Click;
             // 
             // Exit
             // 

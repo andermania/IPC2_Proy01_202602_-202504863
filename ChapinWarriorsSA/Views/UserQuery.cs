@@ -28,5 +28,22 @@ namespace ChapinWarriorsSA.Views
         {
             navigationController.Details(Entity.City);
         }
+
+        private void chapinRescue_Click(object sender, EventArgs e)
+        {
+            DynamicList<Robot> rescueRobots = controller.GetFilteredRobots(typeof(ChapinRescue));
+            navigationController.Details(Entity.Robot, rescueRobots);
+        }
+
+        private void chapinFighter_Click(object sender, EventArgs e)
+        {
+            DynamicList<Robot> fighterRobots = controller.GetFilteredRobots(typeof(ChapinFighter));
+            navigationController.Details(Entity.Robot, fighterRobots);
+        }
+
+        private void mission_Click(object sender, EventArgs e)
+        {
+            navigationController.MissionPrepare();
+        }
     }
 }

@@ -36,10 +36,16 @@
 			<nombre tipo="ChapinRescue">robot01</nombre>
 		</robot>
 		<robot>
-			<nombre tipo="ChapinFighter" capacidad="30">robot02</nombre>
+			<nombre tipo="ChapinRescue">robot02</nombre>
 		</robot>
 		<robot>
-			<nombre tipo="ChapinFighter" capacidad="5">robot03</nombre>
+			<nombre tipo="ChapinFighter" capacidad="30">robot03</nombre>
+		</robot>
+		<robot>
+			<nombre tipo="ChapinFighter" capacidad="5">robot04</nombre>
+		</robot>
+		<robot>
+			<nombre tipo="ChapinFighter" capacidad="100">robot05</nombre>
 		</robot>
 	</robots>
 </configuracion>

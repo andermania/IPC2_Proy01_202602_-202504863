@@ -11,6 +11,7 @@ namespace ChapinWarriorsSA
         private MainView mainView;
         private UserQuery userQuery;
         private Details details;
+        private MissionPrepare missionPrepare;
         private MakeGraphiz graphviz;
         public NavigationController(Controller controller, MakeGraphiz graphviz)
         {
@@ -19,6 +20,7 @@ namespace ChapinWarriorsSA
             mainView = new MainView(controller, this);
             userQuery = new UserQuery(controller, this);
             details = new Details(controller, this, graphviz);
+            missionPrepare = new MissionPrepare(controller, this, graphviz);
         }
 
         public void Start()
@@ -32,24 +34,18 @@ namespace ChapinWarriorsSA
             userQuery.Show();
         }
 
-        public void Details(Entity type)
+        public void Details(Entity type, DynamicList<Robot>? filteredRobots = null)
         {
             HideAll();
-            switch (type)
-            {
-                case Entity.City:
-                    details.SetCityDetails();
-                    break;
-/*
-                case Entity.Robot:
-                    details.SetRobotDetails();
-                    break;
-
-                case Entity.Mission:
-                    details.SetMissionDetails();
-                    break;*/
-            }
+            details.Setup(type, filteredRobots);
             details.Show();
+        }
+
+        public void MissionPrepare()
+        {
+            HideAll();
+            missionPrepare.Setup();
+            missionPrepare.Show();
         }
 
         private void HideAll()

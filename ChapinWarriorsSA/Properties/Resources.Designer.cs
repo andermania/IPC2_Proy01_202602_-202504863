@@ -63,6 +63,16 @@ namespace ChapinWarriorsSA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EjectMission {
+            get {
+                object obj = ResourceManager.GetObject("EjectMission", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChapinFighter {
             get {
                 object obj = ResourceManager.GetObject("ChapinFighter", resourceCulture);

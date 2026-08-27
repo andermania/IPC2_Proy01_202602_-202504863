@@ -26,5 +26,60 @@ namespace ChapinWarriorsSA
         internal int GetRobotCount() => data.Robots.counter;
         internal int GetMissionCount() => data.Missions.counter;
         internal City GetCity(int index) => data.Cities.GetElement(index);
+        internal Robot GetRobot(int index) => data.Robots.GetElement(index);
+
+        internal DynamicList<Robot> GetFilteredRobots(Type robotType)
+        {
+            DynamicList<Robot> filtered = new DynamicList<Robot>();
+            foreach (Robot r in data.Robots)
+            {
+                if (r.GetType() == robotType)
+                {
+                    filtered.Add(r);
+                }
+            }
+            return filtered;
+        }
+
+        internal DynamicList<Robot> GetAllRobotsOrdered()
+        {
+            DynamicList<Robot> ordered = new DynamicList<Robot>();
+            foreach (Robot r in data.Robots)
+            {
+                if (r is ChapinRescue)
+                {
+                    ordered.Add(r);
+                }
+            }
+            foreach (Robot r in data.Robots)
+            {
+                if (r is ChapinFighter)
+                {
+                    ordered.Add(r);
+                }
+            }
+            return ordered;
+        }
+
+        internal DynamicList<Cell> GetDestinations(City city, Type robotType)
+        {
+            DynamicList<Cell> destinations = new DynamicList<Cell>();
+            for (int r = 0; r < city.rows; r++)
+            {
+                for (int c = 0; c < city.columns; c++)
+                {
+                    Cell cell = city.mapMatrix[r][c];
+                    if (robotType == typeof(ChapinRescue) && cell.cell == CellType.Civil)
+                    {
+                        destinations.Add(cell);
+                    }
+                    else if (robotType == typeof(ChapinFighter) && cell.cell == CellType.Resource)
+                    {
+                        destinations.Add(cell);
+                    }
+                }
+            }
+            return destinations;
+        }
     }
 }  
