@@ -4,13 +4,16 @@ using System.Windows.Forms;
 
 namespace ChapinWarriorsSA.Views
 {
-    public partial class FinalReport : Form
+    public partial class History : Form
     {
         private Controller controller;
         private NavigationController navigationController;
         private MakeGraphiz graphviz;
 
-        public FinalReport(Controller controller, NavigationController navigationController, MakeGraphiz graphviz)
+        private int currentIndex;
+        private int currentCount;
+
+        public History(Controller controller, NavigationController navigationController, MakeGraphiz graphviz)
         {
             InitializeComponent();
             this.controller = controller;
@@ -18,32 +21,65 @@ namespace ChapinWarriorsSA.Views
             this.graphviz = graphviz;
         }
 
-        public void Setup(Mission mission)
+        public void Setup()
         {
+            currentCount = controller.GetMissionCount();
+
+            if (currentCount == 0)
+            {
+                TitleLabel.Text = "SIN MISIONES";
+                TitleLabel.ForeColor = Color.Red;
+                MissionNumberLabel.Text = "Misión #0";
+                CityNameValue.Text = "---";
+                StartValue.Text = "---";
+                EndValue.Text = "---";
+                RobotNameValue.Text = "---";
+                RobotTypeValue.Text = "Tipo: ---";
+                RobotCapInitValue.Visible = false;
+                ReportLabel.Text = "";
+                RobotFinalCapValue.Visible = false;
+
+                if (CityMapImage.Image != null)
+                {
+                    Image old = CityMapImage.Image;
+                    CityMapImage.Image = null;
+                    old.Dispose();
+                }
+                RobotImage.Image = null;
+                PreviousButton.Enabled = false;
+                NextButton.Enabled = false;
+                return;
+            }
+
+            currentIndex = 1;
+            PreviousButton.Enabled = true;
+            NextButton.Enabled = true;
+            ShowCurrentMission();
+        }
+
+        private void ShowCurrentMission()
+        {
+            Mission mission = controller.GetMission(currentIndex);
             MissionRenderData d = MissionRenderer.Render(mission, graphviz);
 
-            // ---------- TITULO ----------
+            MissionNumberLabel.Text = "Misión #" + currentIndex;
             TitleLabel.Text = d.title;
             TitleLabel.ForeColor = d.titleColor;
 
-            // ---------- CIUDAD ----------
             CityNameValue.Text = d.cityName;
             StartValue.Text = d.start;
             EndValue.Text = d.end;
 
-            // Mapa de la ciudad (con ruta si hay) o sin ella.
             Image? previous = CityMapImage.Image;
             CityMapImage.Image = MakeGraphiz.CargarImagen(d.mapPng);
             previous?.Dispose();
 
             FitMapImage();
 
-            // ---------- ROBOT ----------
             RobotNameValue.Text = d.robotName;
             RobotTypeValue.Text = d.robotType;
             RobotImage.Image = d.robotImage;
 
-            // ---------- REPORTE DE COMBATE (solo fighter) ----------
             RobotCapInitValue.Visible = d.capInitVisible;
             RobotCapInitValue.Text = d.capInit;
             ReportLabel.Text = d.report;
@@ -52,8 +88,7 @@ namespace ChapinWarriorsSA.Views
         }
 
         // Ajusta el tamaño del PictureBox del mapa para que la imagen cuadre al area
-        // destinada (a la izquierda, junto a la columna del robot), manteniendo la
-        // proporcion original y sin recortar ni deformar.
+        // destinada, manteniendo la proporcion original y sin recortar ni deformar.
         private void FitMapImage()
         {
             if (CityMapImage.Image == null)
@@ -64,7 +99,6 @@ namespace ChapinWarriorsSA.Views
             Image img = CityMapImage.Image;
             CityMapImage.SuspendLayout();
 
-            // Espacio maximo disponible para el mapa dentro del form.
             int maxW = 300;
             int maxH = 150;
 
@@ -86,7 +120,6 @@ namespace ChapinWarriorsSA.Views
             CityMapImage.SizeMode = PictureBoxSizeMode.Zoom;
             CityMapImage.Size = new Size(newW, newH);
 
-            // Centrar el mapa en el area disponible (izquierda, junto a la columna del robot).
             int areaLeft = 45;
             int areaTop = 145;
             int areaW = 300;
@@ -99,7 +132,35 @@ namespace ChapinWarriorsSA.Views
             CityMapImage.ResumeLayout();
         }
 
-        private void ExitButton_Click(object? sender, EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            if (currentCount == 0)
+            {
+                return;
+            }
+            currentIndex++;
+            if (currentIndex > currentCount)
+            {
+                currentIndex = 1;
+            }
+            ShowCurrentMission();
+        }
+
+        private void PreviousButton_Click(object sender, EventArgs e)
+        {
+            if (currentCount == 0)
+            {
+                return;
+            }
+            currentIndex--;
+            if (currentIndex < 1)
+            {
+                currentIndex = currentCount;
+            }
+            ShowCurrentMission();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             navigationController.UserQuery();
         }

@@ -1,7 +1,5 @@
 ﻿using ChapinWarriorsSA.Views;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChapinWarriorsSA
 {
@@ -13,6 +11,7 @@ namespace ChapinWarriorsSA
         private Details details;
         private MissionPrepare missionPrepare;
         private FinalReport finalReport;
+        private History history;
         private MakeGraphiz graphviz;
         public NavigationController(Controller controller, MakeGraphiz graphviz)
         {
@@ -23,6 +22,7 @@ namespace ChapinWarriorsSA
             details = new Details(controller, this, graphviz);
             missionPrepare = new MissionPrepare(controller, this, graphviz);
             finalReport = new FinalReport(controller, this, graphviz);
+            history = new History(controller, this, graphviz);
         }
 
         public void Start()
@@ -55,6 +55,13 @@ namespace ChapinWarriorsSA
             HideAll();
             finalReport.Setup(mission);
             finalReport.Show();
+        }
+
+        public void History()
+        {
+            HideAll();
+            history.Setup();
+            history.Show();
         }
 
         private void HideAll()

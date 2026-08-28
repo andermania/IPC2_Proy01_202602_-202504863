@@ -1,6 +1,6 @@
 namespace ChapinWarriorsSA.Views
 {
-    partial class FinalReport
+    partial class History
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -18,6 +18,7 @@ namespace ChapinWarriorsSA.Views
         private void InitializeComponent()
         {
             TitleLabel = new Label();
+            MissionNumberLabel = new Label();
             CityTitle = new Label();
             CityNameValue = new Label();
             StartTitle = new Label();
@@ -32,14 +33,18 @@ namespace ChapinWarriorsSA.Views
             ReportLabel = new Label();
             RobotFinalCapValue = new Label();
             RobotImage = new PictureBox();
+            PreviousButton = new PictureBox();
+            NextButton = new PictureBox();
             ExitButton = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)CityMapImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RobotImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PreviousButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NextButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ExitButton).BeginInit();
             SuspendLayout();
-            // 
+            //
             // TitleLabel
-            // 
+            //
             TitleLabel.AutoSize = true;
             TitleLabel.Font = new Font("SimSun-ExtG", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TitleLabel.ForeColor = Color.SpringGreen;
@@ -48,9 +53,20 @@ namespace ChapinWarriorsSA.Views
             TitleLabel.Size = new Size(239, 30);
             TitleLabel.TabIndex = 0;
             TitleLabel.Text = "MISIÓN EXITOSA";
-            // 
+            //
+            // MissionNumberLabel
+            //
+            MissionNumberLabel.AutoSize = true;
+            MissionNumberLabel.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MissionNumberLabel.ForeColor = SystemColors.ButtonHighlight;
+            MissionNumberLabel.Location = new Point(12, 15);
+            MissionNumberLabel.Name = "MissionNumberLabel";
+            MissionNumberLabel.Size = new Size(95, 19);
+            MissionNumberLabel.TabIndex = 16;
+            MissionNumberLabel.Text = "Misión #1";
+            //
             // CityTitle
-            // 
+            //
             CityTitle.AutoSize = true;
             CityTitle.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CityTitle.ForeColor = Color.MediumSpringGreen;
@@ -59,9 +75,9 @@ namespace ChapinWarriorsSA.Views
             CityTitle.Size = new Size(86, 19);
             CityTitle.TabIndex = 1;
             CityTitle.Text = "Ciudad:";
-            // 
+            //
             // CityNameValue
-            // 
+            //
             CityNameValue.AutoSize = true;
             CityNameValue.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CityNameValue.ForeColor = SystemColors.ButtonHighlight;
@@ -70,9 +86,9 @@ namespace ChapinWarriorsSA.Views
             CityNameValue.Size = new Size(39, 19);
             CityNameValue.TabIndex = 2;
             CityNameValue.Text = "---";
-            // 
+            //
             // StartTitle
-            // 
+            //
             StartTitle.AutoSize = true;
             StartTitle.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             StartTitle.ForeColor = SystemColors.ButtonHighlight;
@@ -81,9 +97,9 @@ namespace ChapinWarriorsSA.Views
             StartTitle.Size = new Size(135, 16);
             StartTitle.TabIndex = 3;
             StartTitle.Text = "Punto de salida:";
-            // 
+            //
             // StartValue
-            // 
+            //
             StartValue.AutoSize = true;
             StartValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             StartValue.ForeColor = SystemColors.ButtonHighlight;
@@ -92,9 +108,9 @@ namespace ChapinWarriorsSA.Views
             StartValue.Size = new Size(31, 16);
             StartValue.TabIndex = 4;
             StartValue.Text = "---";
-            // 
+            //
             // EndTitle
-            // 
+            //
             EndTitle.AutoSize = true;
             EndTitle.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EndTitle.ForeColor = SystemColors.ButtonHighlight;
@@ -103,9 +119,9 @@ namespace ChapinWarriorsSA.Views
             EndTitle.Size = new Size(103, 16);
             EndTitle.TabIndex = 5;
             EndTitle.Text = "Punto final:";
-            // 
+            //
             // EndValue
-            // 
+            //
             EndValue.AutoSize = true;
             EndValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EndValue.ForeColor = SystemColors.ButtonHighlight;
@@ -114,18 +130,18 @@ namespace ChapinWarriorsSA.Views
             EndValue.Size = new Size(31, 16);
             EndValue.TabIndex = 6;
             EndValue.Text = "---";
-            // 
+            //
             // CityMapImage
-            // 
+            //
             CityMapImage.Location = new Point(45, 145);
             CityMapImage.Name = "CityMapImage";
             CityMapImage.Size = new Size(189, 137);
             CityMapImage.SizeMode = PictureBoxSizeMode.Zoom;
             CityMapImage.TabIndex = 7;
             CityMapImage.TabStop = false;
-            // 
+            //
             // RobotTitle
-            // 
+            //
             RobotTitle.AutoSize = true;
             RobotTitle.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RobotTitle.ForeColor = Color.DodgerBlue;
@@ -134,9 +150,9 @@ namespace ChapinWarriorsSA.Views
             RobotTitle.Size = new Size(75, 19);
             RobotTitle.TabIndex = 8;
             RobotTitle.Text = "Robot:";
-            // 
+            //
             // RobotNameValue
-            // 
+            //
             RobotNameValue.AutoSize = true;
             RobotNameValue.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotNameValue.ForeColor = SystemColors.ButtonHighlight;
@@ -145,9 +161,9 @@ namespace ChapinWarriorsSA.Views
             RobotNameValue.Size = new Size(39, 19);
             RobotNameValue.TabIndex = 9;
             RobotNameValue.Text = "---";
-            // 
+            //
             // RobotTypeValue
-            // 
+            //
             RobotTypeValue.AutoSize = true;
             RobotTypeValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotTypeValue.ForeColor = SystemColors.ButtonHighlight;
@@ -156,9 +172,9 @@ namespace ChapinWarriorsSA.Views
             RobotTypeValue.Size = new Size(79, 16);
             RobotTypeValue.TabIndex = 10;
             RobotTypeValue.Text = "Tipo: ---";
-            // 
+            //
             // RobotCapInitValue
-            // 
+            //
             RobotCapInitValue.AutoSize = true;
             RobotCapInitValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotCapInitValue.ForeColor = SystemColors.ButtonHighlight;
@@ -168,20 +184,20 @@ namespace ChapinWarriorsSA.Views
             RobotCapInitValue.TabIndex = 11;
             RobotCapInitValue.Text = "Capacidad inicial: ---";
             RobotCapInitValue.Visible = false;
-            // 
+            //
             // ReportLabel
-            // 
+            //
             ReportLabel.AutoSize = true;
             ReportLabel.Font = new Font("SimSun-ExtG", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ReportLabel.ForeColor = SystemColors.ButtonHighlight;
             ReportLabel.Location = new Point(362, 145);
-            ReportLabel.MaximumSize = new Size(360, 0);
+            ReportLabel.MaximumSize = new Size(300, 0);
             ReportLabel.Name = "ReportLabel";
             ReportLabel.Size = new Size(0, 15);
             ReportLabel.TabIndex = 12;
-            // 
+            //
             // RobotFinalCapValue
-            // 
+            //
             RobotFinalCapValue.AutoSize = true;
             RobotFinalCapValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RobotFinalCapValue.ForeColor = Color.Orange;
@@ -191,18 +207,40 @@ namespace ChapinWarriorsSA.Views
             RobotFinalCapValue.TabIndex = 13;
             RobotFinalCapValue.Text = "Capacidad de combate final: ---";
             RobotFinalCapValue.Visible = false;
-            // 
+            //
             // RobotImage
-            // 
+            //
             RobotImage.Location = new Point(45, 334);
             RobotImage.Name = "RobotImage";
             RobotImage.Size = new Size(115, 100);
             RobotImage.SizeMode = PictureBoxSizeMode.Zoom;
             RobotImage.TabIndex = 14;
             RobotImage.TabStop = false;
-            // 
+            //
+            // PreviousButton
+            //
+            PreviousButton.Image = Properties.Resources.FlechaBefore;
+            PreviousButton.Location = new Point(420, 453);
+            PreviousButton.Name = "PreviousButton";
+            PreviousButton.Size = new Size(90, 52);
+            PreviousButton.SizeMode = PictureBoxSizeMode.Zoom;
+            PreviousButton.TabIndex = 17;
+            PreviousButton.TabStop = false;
+            PreviousButton.Click += PreviousButton_Click;
+            //
+            // NextButton
+            //
+            NextButton.Image = Properties.Resources.FlechaNext;
+            NextButton.Location = new Point(520, 453);
+            NextButton.Name = "NextButton";
+            NextButton.Size = new Size(90, 52);
+            NextButton.SizeMode = PictureBoxSizeMode.Zoom;
+            NextButton.TabIndex = 18;
+            NextButton.TabStop = false;
+            NextButton.Click += NextButton_Click;
+            //
             // ExitButton
-            // 
+            //
             ExitButton.Image = Properties.Resources.salir;
             ExitButton.Location = new Point(616, 453);
             ExitButton.Name = "ExitButton";
@@ -211,14 +249,16 @@ namespace ChapinWarriorsSA.Views
             ExitButton.TabIndex = 15;
             ExitButton.TabStop = false;
             ExitButton.Click += ExitButton_Click;
-            // 
-            // FinalReport
-            // 
+            //
+            // History
+            //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(693, 517);
             Controls.Add(ExitButton);
+            Controls.Add(NextButton);
+            Controls.Add(PreviousButton);
             Controls.Add(RobotImage);
             Controls.Add(RobotFinalCapValue);
             Controls.Add(ReportLabel);
@@ -233,12 +273,15 @@ namespace ChapinWarriorsSA.Views
             Controls.Add(StartTitle);
             Controls.Add(CityNameValue);
             Controls.Add(CityTitle);
+            Controls.Add(MissionNumberLabel);
             Controls.Add(TitleLabel);
             ForeColor = Color.White;
-            Name = "FinalReport";
-            Text = "FinalReport";
+            Name = "History";
+            Text = "History";
             ((System.ComponentModel.ISupportInitialize)CityMapImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)RobotImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PreviousButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NextButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)ExitButton).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -247,6 +290,7 @@ namespace ChapinWarriorsSA.Views
         #endregion
 
         private Label TitleLabel;
+        private Label MissionNumberLabel;
         private Label CityTitle;
         private Label CityNameValue;
         private Label StartTitle;
@@ -261,6 +305,8 @@ namespace ChapinWarriorsSA.Views
         private Label ReportLabel;
         private Label RobotFinalCapValue;
         private PictureBox RobotImage;
+        private PictureBox PreviousButton;
+        private PictureBox NextButton;
         private PictureBox ExitButton;
     }
 }

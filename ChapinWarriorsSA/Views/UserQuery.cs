@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ChapinWarriorsSA.Views
@@ -44,6 +40,11 @@ namespace ChapinWarriorsSA.Views
         private void mission_Click(object sender, EventArgs e)
         {
             navigationController.MissionPrepare();
+        }
+
+        private void history_Click(object sender, EventArgs e)
+        {
+            navigationController.History();
         }
     }
 }

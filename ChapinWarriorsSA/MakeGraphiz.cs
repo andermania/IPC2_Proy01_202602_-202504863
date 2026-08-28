@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
@@ -16,17 +15,15 @@ namespace ChapinWarriorsSA
         // Genera el mapa de la ciudad SIN ninguna ruta resaltada.
         public string GenerarMapaCiudad(City city)
         {
-            return Generar(city, null, null);
+            return Generar(city, null);
         }
 
         // Genera el mapa de la ciudad CON la ruta de una misión resaltada.
         // route: celdas que forman el camino encontrado por el algoritmo (en cualquier orden).
-        // infoLines: texto opcional a mostrar debajo del mapa
-        //            (ej: "Tipo de mision: rescate", "Robot utilizado: robot01").
-        public string GenerarMapaMision(City city, DynamicList<Cell> route, string[] infoLines)
+        public string GenerarMapaMision(City city, DynamicList<Cell> route)
         {
             bool[][] routeMask = BuildRouteMask(city, route);
-            return Generar(city, routeMask, infoLines);
+            return Generar(city, routeMask);
         }
 
         // Carga el PNG generado SIN bloquear el archivo en disco.
@@ -43,9 +40,9 @@ namespace ChapinWarriorsSA
             }
         }
 
-        private string Generar(City city, bool[][]? routeMask, string[]? infoLines)
+        private string Generar(City city, bool[][]? routeMask)
         {
-            string dot = BuildDot(city, routeMask, infoLines);
+            string dot = BuildDot(city, routeMask);
             File.WriteAllText(DotFilePath, dot);
             RunDot(DotFilePath, PngFilePath);
             return PngFilePath;
@@ -72,7 +69,7 @@ namespace ChapinWarriorsSA
             return mask;
         }
 
-        private string BuildDot(City city, bool[][]? routeMask, string[]? infoLines)
+        private string BuildDot(City city, bool[][]? routeMask)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -83,14 +80,6 @@ namespace ChapinWarriorsSA
             sb.AppendLine("  grid [label=<");
             sb.Append(BuildGridTable(city, routeMask));
             sb.AppendLine("  >];");
-
-            if (infoLines != null && infoLines.Length > 0)
-            {
-                sb.AppendLine("  info [label=<");
-                sb.Append(BuildInfoTable(infoLines));
-                sb.AppendLine("  >];");
-                sb.AppendLine("  grid -> info [style=invis];"); // fuerza a que "info" quede debajo del mapa
-            }
 
             sb.AppendLine("}");
 
@@ -133,20 +122,6 @@ namespace ChapinWarriorsSA
             return sb.ToString();
         }
 
-        private string BuildInfoTable(string[] infoLines)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine("    <TABLE BORDER=\"0\" CELLBORDER=\"0\">");
-            foreach (string line in infoLines)
-            {
-                sb.AppendLine("      <TR><TD ALIGN=\"LEFT\"><FONT POINT-SIZE=\"12\">" + EscapeHtml(line) + "</FONT></TD></TR>");
-            }
-            sb.AppendLine("    </TABLE>");
-
-            return sb.ToString();
-        }
-
         // El color se decide asi:
         // - Si la celda es de tipo Path Y esta en la ruta -> color de ruta (khaki).
         // - En cualquier otro caso -> color fijo segun el tipo de celda
@@ -169,11 +144,6 @@ namespace ChapinWarriorsSA
                 case CellType.Military: return "red";
                 default: return "white";
             }
-        }
-
-        private string EscapeHtml(string text)
-        {
-            return text.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
         }
 
         // -------------------- EJECUCION DE GRAPHVIZ --------------------

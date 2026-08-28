@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChapinWarriorsSA
 {
@@ -27,6 +25,7 @@ namespace ChapinWarriorsSA
         internal int GetMissionCount() => data.Missions.counter;
         internal City GetCity(int index) => data.Cities.GetElement(index);
         internal Robot GetRobot(int index) => data.Robots.GetElement(index);
+        internal Mission GetMission(int index) => data.Missions.GetElement(index);
 
         internal DynamicList<Robot> GetFilteredRobots(Type robotType)
         {

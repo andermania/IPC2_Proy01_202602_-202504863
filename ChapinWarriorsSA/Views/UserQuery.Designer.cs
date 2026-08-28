@@ -105,6 +105,7 @@
             history.SizeMode = PictureBoxSizeMode.Zoom;
             history.TabIndex = 7;
             history.TabStop = false;
+            history.Click += history_Click;
             // 
             // mission
             // 

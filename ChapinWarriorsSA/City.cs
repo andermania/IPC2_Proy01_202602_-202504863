@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChapinWarriorsSA
+﻿namespace ChapinWarriorsSA
 {
     public class City
     {
-        public String name;
+        public string name;
         public int rows;
         public int columns;
         public int entries;

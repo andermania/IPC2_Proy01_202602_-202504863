@@ -231,7 +231,6 @@ namespace ChapinWarriorsSA.Views
             DestInfoLabel.Size = new Size(111, 15);
             DestInfoLabel.TabIndex = 15;
             DestInfoLabel.Text = "Seleccionado:";
-            DestInfoLabel.Click += DestInfoLabel_Click;
             // 
             // NoDestLabel
             // 

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ChapinWarriorsSA
 {
@@ -45,54 +43,6 @@ namespace ChapinWarriorsSA
             return current.GetData();
         }
 
-        public T Find(Predicate<T> match)
-        {
-            Node<T>? current = first;
-            while (current != null)
-            {
-                if (match(current.data))
-                {
-                    return current.data;
-                }
-                current = current.next;
-            }
-            return default!;
-        }
-
-        public bool Remove(T dato)
-        {
-            Node<T>? current = first;
-            Node<T>? previous = null;
-
-            while (current != null)
-            {
-                if (EqualityComparer<T>.Default.Equals(current.data, dato))
-                {
-                    if (previous == null)
-                    {
-                        first = current.next!;
-                    }
-                    else
-                    {
-                        previous.next = current.next;
-                    }
-
-                    if (current == last)
-                    {
-                        last = previous!;
-                    }
-
-                    counter--;
-                    return true;
-                }
-
-                previous = current;
-                current = current.next;
-            }
-
-            return false;
-        }
-
         public IEnumerator<T> GetEnumerator()
         {
             Node<T>? current = first;
@@ -102,10 +52,5 @@ namespace ChapinWarriorsSA
                 current = current.next;
             }
         }
-
-        /*IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }*/
     }
 }

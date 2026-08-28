@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ChapinWarriorsSA
 {
@@ -108,7 +107,7 @@ namespace ChapinWarriorsSA
 
                 if (isFighter)
                 {
-                    SimulateFailedFighter(mission, grid, city, destination, robotHealth);
+                    SimulateFailedFighter(mission, grid, city, robotHealth);
                 }
 
                 return mission;
@@ -258,7 +257,7 @@ namespace ChapinWarriorsSA
         // fighter recorre el corredor de bases en serie; derrota las que puede y se
         // detiene en la primera que no puede vencer. Reporta Destruida/No Destruida.
         private static void SimulateFailedFighter(Mission mission, OrthogonalGrid grid, City city,
-            Cell destination, int robotHealth)
+            int robotHealth)
         {
             DynamicList<Cell> allMilitary = CollectMilitaryCells(city);
             if (allMilitary.counter == 0)

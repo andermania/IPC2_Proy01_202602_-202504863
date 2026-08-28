@@ -1,12 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
 
 namespace ChapinWarriorsSA.Views
 {
@@ -216,11 +210,6 @@ namespace ChapinWarriorsSA.Views
 
             Mission mission = controller.ExecuteMission(city, robot, destination);
             navigationController.FinalReportView(mission);
-        }
-
-        private void DestInfoLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
