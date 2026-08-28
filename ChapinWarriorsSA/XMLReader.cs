@@ -4,60 +4,75 @@ namespace ChapinWarriorsSA
 {
     public class XMLReader
     {
-        public DynamicList<City> ReadCities(string path)
+        // Lee todos los archivos .xml dentro de "folderPath" y los agrega a las listas.
+        // Evita duplicados: si un archivo repite el nombre de una ciudad o robot que ya
+        // se cargo, se descarta la repeticion (se conserva el primero que aparezca).
+        public void ReadFolder(string folderPath, DynamicList<City> cities, DynamicList<Robot> robots)
         {
-            DynamicList<City> result = new DynamicList<City>();
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-
-            XmlNode? configNode = doc.SelectSingleNode("configuracion");
-            if (configNode == null)
+            if (!Directory.Exists(folderPath))
             {
-                throw new Exception("El archivo XML no tiene la etiqueta raiz <configuracion>.");
+                throw new Exception("La carpeta " + folderPath + " no existe. Crea una carpeta 'XMLfiles' junto al ejecutable y coloca ahi los archivos .xml.");
             }
 
-            XmlNode? listaCiudadesNode = configNode.SelectSingleNode("listaCiudades");
-            if (listaCiudadesNode != null)
+            foreach (string file in Directory.GetFiles(folderPath, "*.xml"))
             {
-                foreach (XmlNode ciudadNode in listaCiudadesNode.ChildNodes)
+                XmlDocument doc = new XmlDocument();
+                doc.Load(file);
+
+                XmlNode? configNode = doc.SelectSingleNode("configuracion");
+                if (configNode == null)
                 {
-                    if (ciudadNode.NodeType == XmlNodeType.Element && ciudadNode.Name == "ciudad")
+                    throw new Exception("El archivo " + file + " no tiene la etiqueta raiz <configuracion>.");
+                }
+
+                XmlNode? listaCiudadesNode = configNode.SelectSingleNode("listaCiudades");
+                if (listaCiudadesNode != null)
+                {
+                    foreach (XmlNode ciudadNode in listaCiudadesNode.ChildNodes)
                     {
-                        result.Add(ReadCity(ciudadNode));
+                        if (ciudadNode.NodeType == XmlNodeType.Element && ciudadNode.Name == "ciudad")
+                        {
+                            AddCityIfNew(cities, ReadCity(ciudadNode));
+                        }
+                    }
+                }
+
+                XmlNode? robotsNode = configNode.SelectSingleNode("robots");
+                if (robotsNode != null)
+                {
+                    foreach (XmlNode robotNode in robotsNode.ChildNodes)
+                    {
+                        if (robotNode.NodeType == XmlNodeType.Element && robotNode.Name == "robot")
+                        {
+                            AddRobotIfNew(robots, ReadRobot(robotNode));
+                        }
                     }
                 }
             }
-
-            return result;
         }
 
-        public DynamicList<Robot> ReadRobots(string path)
+        private void AddCityIfNew(DynamicList<City> cities, City city)
         {
-            DynamicList<Robot> result = new DynamicList<Robot>();
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-
-            XmlNode? configNode = doc.SelectSingleNode("configuracion");
-            if (configNode == null)
+            foreach (City existing in cities)
             {
-                throw new Exception("El archivo XML no tiene la etiqueta raiz <configuracion>.");
-            }
-
-            XmlNode? robotsNode = configNode.SelectSingleNode("robots");
-            if (robotsNode != null)
-            {
-                foreach (XmlNode robotNode in robotsNode.ChildNodes)
+                if (existing.name == city.name)
                 {
-                    if (robotNode.NodeType == XmlNodeType.Element && robotNode.Name == "robot")
-                    {
-                        result.Add(ReadRobot(robotNode));
-                    }
+                    return;
                 }
             }
+            cities.Add(city);
+        }
 
-            return result;
+        private void AddRobotIfNew(DynamicList<Robot> robots, Robot robot)
+        {
+            foreach (Robot existing in robots)
+            {
+                if (existing.name == robot.name)
+                {
+                    return;
+                }
+            }
+            robots.Add(robot);
         }
 
         // -------------------- CIUDADES --------------------

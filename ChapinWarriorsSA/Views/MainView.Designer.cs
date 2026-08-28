@@ -52,7 +52,7 @@
             FirstButton.Name = "FirstButton";
             FirstButton.Size = new Size(159, 48);
             FirstButton.TabIndex = 1;
-            FirstButton.Text = "Cargar XML";
+            FirstButton.Text = "Empezar";
             FirstButton.UseVisualStyleBackColor = false;
             FirstButton.Click += FirstButton_Click;
             // 

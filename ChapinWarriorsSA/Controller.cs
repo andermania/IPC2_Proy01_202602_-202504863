@@ -14,10 +14,10 @@ namespace ChapinWarriorsSA
         }
         internal void ReadCities()
         {
-            String path = "C:\\Users\\kevin\\source\\repos\\ChapinWarriorsSA\\ChapinWarriorsSA\\XMLdocument.xml";
-            DynamicList<City> cities = xml.ReadCities(path);
-            DynamicList<Robot> robots = xml.ReadRobots(path);
-            data.SaveLists(cities, robots); 
+            string folderPath = Path.Combine(AppContext.BaseDirectory, "XMLfiles");
+            data.Cities = new DynamicList<City>();
+            data.Robots = new DynamicList<Robot>();
+            xml.ReadFolder(folderPath, data.Cities, data.Robots);
         }
 
         internal int GetCityCount() => data.Cities.counter;
