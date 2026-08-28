@@ -188,6 +188,12 @@ namespace ChapinWarriorsSA
             }
             mission.route = route;
 
+            // El primer nodo de la ruta reconstruida es la entrada real de la que partio el robot.
+            if (route.counter > 0)
+            {
+                mission.startCell = route.GetElement(1);
+            }
+
             // ---- Aplicar combate por cada base de la ruta ----
             if (isFighter)
             {
