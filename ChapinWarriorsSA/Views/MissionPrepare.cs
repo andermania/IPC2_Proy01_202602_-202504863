@@ -172,6 +172,7 @@ namespace ChapinWarriorsSA.Views
         {
             if (DestComboBox.SelectedIndex >= 0)
             {
+                // El ComboBox es 0-based, pero DynamicList es 1-based -> sumo 1.
                 Cell selected = currentDestinations.GetElement(DestComboBox.SelectedIndex + 1);
                 string tipo = selected.cell == CellType.Civil ? "Civil" : "Resource";
                 DestInfoLabel.Text = "Seleccionado:";

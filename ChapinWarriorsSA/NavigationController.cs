@@ -3,6 +3,8 @@ using System;
 
 namespace ChapinWarriorsSA
 {
+    // Controlador de navegacion: crea los formularios una sola vez y los muestra/oculta
+    // segun la pantalla activa (oculta todos y muestra el solicitado).
     public class NavigationController
     {
         private Controller controller;

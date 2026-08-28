@@ -40,6 +40,8 @@ namespace ChapinWarriorsSA
             return filtered;
         }
 
+        // Devuelve los robots agrupando primero los de rescate y luego los de combate
+        // (orden estable para presentarlos de forma consistente en pantalla).
         internal DynamicList<Robot> GetAllRobotsOrdered()
         {
             DynamicList<Robot> ordered = new DynamicList<Robot>();
@@ -60,6 +62,7 @@ namespace ChapinWarriorsSA
             return ordered;
         }
 
+        // Los destinos validos dependen del tipo de robot: rescue -> civiles, fighter -> recursos.
         internal DynamicList<Cell> GetDestinations(City city, Type robotType)
         {
             DynamicList<Cell> destinations = new DynamicList<Cell>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace ChapinWarriorsSA
 {
+    // Lista enlazada generica con indices basados en 1 (la primera posicion es 1).
     public class DynamicList<T>
     {
         private Node<T> first = null!;

@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 namespace ChapinWarriorsSA.Views
 {
+    // Menu principal de la aplicacion: puntos de entrada para ver ciudades, robots,
+    // preparar una mision o abrir el historial.
     public partial class UserQuery : Form
     {
         public Controller controller;
