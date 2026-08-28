@@ -12,6 +12,7 @@ namespace ChapinWarriorsSA
         private UserQuery userQuery;
         private Details details;
         private MissionPrepare missionPrepare;
+        private FinalReport finalReport;
         private MakeGraphiz graphviz;
         public NavigationController(Controller controller, MakeGraphiz graphviz)
         {
@@ -21,6 +22,7 @@ namespace ChapinWarriorsSA
             userQuery = new UserQuery(controller, this);
             details = new Details(controller, this, graphviz);
             missionPrepare = new MissionPrepare(controller, this, graphviz);
+            finalReport = new FinalReport(controller, this, graphviz);
         }
 
         public void Start()
@@ -46,6 +48,13 @@ namespace ChapinWarriorsSA
             HideAll();
             missionPrepare.Setup();
             missionPrepare.Show();
+        }
+
+        public void FinalReportView(Mission mission)
+        {
+            HideAll();
+            finalReport.Setup(mission);
+            finalReport.Show();
         }
 
         private void HideAll()

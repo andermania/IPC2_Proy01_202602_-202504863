@@ -214,10 +214,8 @@ namespace ChapinWarriorsSA.Views
             Robot robot = SelectedRobot;
             Cell destination = SelectedDestination;
 
-            Debug.WriteLine("Misión preparada:");
-            Debug.WriteLine("  Ciudad: " + city.name);
-            Debug.WriteLine("  Robot: " + robot.name);
-            Debug.WriteLine("  Destino: Fila " + destination.row + ", Columna " + destination.column);
+            Mission mission = controller.ExecuteMission(city, robot, destination);
+            navigationController.FinalReportView(mission);
         }
 
         private void DestInfoLabel_Click(object sender, EventArgs e)

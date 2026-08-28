@@ -81,5 +81,12 @@ namespace ChapinWarriorsSA
             }
             return destinations;
         }
+
+        internal Mission ExecuteMission(City city, Robot robot, Cell destination)
+        {
+            Mission mission = MissionEngine.Execute(city, robot, destination);
+            data.Missions.Add(mission);
+            return mission;
+        }
     }
 }  
