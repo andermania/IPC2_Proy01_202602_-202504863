@@ -4,15 +4,16 @@ using System.Collections.Generic;
 namespace ChapinWarriorsSA
 {
     // Lista enlazada generica con indices basados en 1 (la primera posicion es 1).
+    // El nodo no es generico: almacena el dato como object y se castea (T) al leer.
     public class DynamicList<T>
     {
-        private Node<T> first = null!;
-        private Node<T> last = null!;
+        private Nodo first = null!;
+        private Nodo last = null!;
         public int counter;
 
         public void Add(T dato)
         {
-            Node<T> nuevo = new Node<T>(dato);
+            Nodo nuevo = new Nodo(dato);
 
             if (first == null)
             {
@@ -35,21 +36,21 @@ namespace ChapinWarriorsSA
                 throw new IndexOutOfRangeException("Posicion fuera de rango: " + posicion + " (la lista tiene " + counter + " elementos).");
             }
 
-            Node<T> current = first;
+            Nodo current = first;
             for (int i = 1; i < posicion; i++)
             {
                 current = current.next!;
             }
 
-            return current.GetData();
+            return (T)current.GetData()!;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            Node<T>? current = first;
+            Nodo? current = first;
             while (current != null)
             {
-                yield return current.data;
+                yield return (T)current.data!;
                 current = current.next;
             }
         }

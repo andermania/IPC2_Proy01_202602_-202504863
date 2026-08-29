@@ -81,7 +81,7 @@ namespace ChapinWarriorsSA
                 {
                     report.AppendLine("Base (" + battle.row + "x" + battle.column + "): " +
                         (battle.destroyed ? "Destruida" : "No Destruida") +
-                        (battle.destroyed ? "     Daño: " + battle.damage : ""));
+                        "     Daño: " + battle.damage);
                     report.AppendLine();
                 }
                 d.report = report.ToString();

@@ -305,8 +305,9 @@ namespace ChapinWarriorsSA
                 else
                 {
                     // Primera base que no puede vencer: bloquea la ruta restante.
+                    // Se reporta su capacidad como el daño que fue capaz de causar.
                     record.destroyed = false;
-                    record.damage = 0;
+                    record.damage = baseCell.combatCapacity;
                 }
                 mission.battles.Add(record);
 

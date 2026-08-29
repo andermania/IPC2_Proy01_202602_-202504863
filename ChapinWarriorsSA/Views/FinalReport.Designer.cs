@@ -43,7 +43,7 @@ namespace ChapinWarriorsSA.Views
             TitleLabel.AutoSize = true;
             TitleLabel.Font = new Font("SimSun-ExtG", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TitleLabel.ForeColor = Color.SpringGreen;
-            TitleLabel.Location = new Point(223, 9);
+            TitleLabel.Location = new Point(220, 9);
             TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new Size(239, 30);
             TitleLabel.TabIndex = 0;
@@ -119,7 +119,7 @@ namespace ChapinWarriorsSA.Views
             // 
             CityMapImage.Location = new Point(45, 145);
             CityMapImage.Name = "CityMapImage";
-            CityMapImage.Size = new Size(189, 137);
+            CityMapImage.Size = new Size(347, 247);
             CityMapImage.SizeMode = PictureBoxSizeMode.Zoom;
             CityMapImage.TabIndex = 7;
             CityMapImage.TabStop = false;
@@ -129,7 +129,7 @@ namespace ChapinWarriorsSA.Views
             RobotTitle.AutoSize = true;
             RobotTitle.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RobotTitle.ForeColor = Color.DodgerBlue;
-            RobotTitle.Location = new Point(362, 60);
+            RobotTitle.Location = new Point(417, 60);
             RobotTitle.Name = "RobotTitle";
             RobotTitle.Size = new Size(75, 19);
             RobotTitle.TabIndex = 8;
@@ -140,7 +140,7 @@ namespace ChapinWarriorsSA.Views
             RobotNameValue.AutoSize = true;
             RobotNameValue.Font = new Font("SimSun-ExtG", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotNameValue.ForeColor = SystemColors.ButtonHighlight;
-            RobotNameValue.Location = new Point(457, 60);
+            RobotNameValue.Location = new Point(512, 60);
             RobotNameValue.Name = "RobotNameValue";
             RobotNameValue.Size = new Size(39, 19);
             RobotNameValue.TabIndex = 9;
@@ -151,7 +151,7 @@ namespace ChapinWarriorsSA.Views
             RobotTypeValue.AutoSize = true;
             RobotTypeValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotTypeValue.ForeColor = SystemColors.ButtonHighlight;
-            RobotTypeValue.Location = new Point(362, 90);
+            RobotTypeValue.Location = new Point(417, 90);
             RobotTypeValue.Name = "RobotTypeValue";
             RobotTypeValue.Size = new Size(79, 16);
             RobotTypeValue.TabIndex = 10;
@@ -162,7 +162,7 @@ namespace ChapinWarriorsSA.Views
             RobotCapInitValue.AutoSize = true;
             RobotCapInitValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RobotCapInitValue.ForeColor = SystemColors.ButtonHighlight;
-            RobotCapInitValue.Location = new Point(362, 115);
+            RobotCapInitValue.Location = new Point(417, 115);
             RobotCapInitValue.Name = "RobotCapInitValue";
             RobotCapInitValue.Size = new Size(183, 16);
             RobotCapInitValue.TabIndex = 11;
@@ -174,7 +174,7 @@ namespace ChapinWarriorsSA.Views
             ReportLabel.AutoSize = true;
             ReportLabel.Font = new Font("SimSun-ExtG", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ReportLabel.ForeColor = SystemColors.ButtonHighlight;
-            ReportLabel.Location = new Point(362, 145);
+            ReportLabel.Location = new Point(417, 145);
             ReportLabel.MaximumSize = new Size(360, 0);
             ReportLabel.Name = "ReportLabel";
             ReportLabel.Size = new Size(0, 15);
@@ -185,7 +185,7 @@ namespace ChapinWarriorsSA.Views
             RobotFinalCapValue.AutoSize = true;
             RobotFinalCapValue.Font = new Font("SimSun-ExtG", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RobotFinalCapValue.ForeColor = Color.Orange;
-            RobotFinalCapValue.Location = new Point(45, 308);
+            RobotFinalCapValue.Location = new Point(45, 395);
             RobotFinalCapValue.Name = "RobotFinalCapValue";
             RobotFinalCapValue.Size = new Size(286, 16);
             RobotFinalCapValue.TabIndex = 13;
@@ -194,7 +194,7 @@ namespace ChapinWarriorsSA.Views
             // 
             // RobotImage
             // 
-            RobotImage.Location = new Point(45, 334);
+            RobotImage.Location = new Point(45, 421);
             RobotImage.Name = "RobotImage";
             RobotImage.Size = new Size(115, 100);
             RobotImage.SizeMode = PictureBoxSizeMode.Zoom;
@@ -204,7 +204,7 @@ namespace ChapinWarriorsSA.Views
             // ExitButton
             // 
             ExitButton.Image = Properties.Resources.salir;
-            ExitButton.Location = new Point(616, 453);
+            ExitButton.Location = new Point(592, 469);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(65, 52);
             ExitButton.SizeMode = PictureBoxSizeMode.Zoom;
@@ -217,7 +217,7 @@ namespace ChapinWarriorsSA.Views
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(693, 517);
+            ClientSize = new Size(669, 534);
             Controls.Add(ExitButton);
             Controls.Add(RobotImage);
             Controls.Add(RobotFinalCapValue);

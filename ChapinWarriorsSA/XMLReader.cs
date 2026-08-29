@@ -7,45 +7,67 @@ namespace ChapinWarriorsSA
         // Lee todos los archivos .xml dentro de "folderPath" y los agrega a las listas.
         // Evita duplicados: si un archivo repite el nombre de una ciudad o robot que ya
         // se cargo, se descarta la repeticion (se conserva el primero que aparezca).
-        public void ReadFolder(string folderPath, DynamicList<City> cities, DynamicList<Robot> robots)
+        // Si un archivo tiene errores (p.ej. una unidad militar superpuesta sobre civiles,
+        // recursos, entradas o muros) NO lanza excepcion: descarta ese archivo, continua
+        // con los demas y devuelve un mensaje de error para mostrarlo en pantalla.
+        public string? ReadFolder(string folderPath, DynamicList<City> cities, DynamicList<Robot> robots)
         {
             if (!Directory.Exists(folderPath))
             {
-                throw new Exception("La carpeta " + folderPath + " no existe. Crea una carpeta 'XMLfiles' junto al ejecutable y coloca ahi los archivos .xml.");
+                return "La carpeta " + folderPath + " no existe. Crea una carpeta 'XMLfiles' junto al ejecutable y coloca ahi los archivos .xml.";
             }
+
+            string? firstError = null;
 
             foreach (string file in Directory.GetFiles(folderPath, "*.xml"))
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(file);
-
-                XmlNode? configNode = doc.SelectSingleNode("configuracion");
-                if (configNode == null)
+                try
                 {
-                    throw new Exception("El archivo " + file + " no tiene la etiqueta raiz <configuracion>.");
+                    ReadFile(file, cities, robots);
                 }
-
-                XmlNode? listaCiudadesNode = configNode.SelectSingleNode("listaCiudades");
-                if (listaCiudadesNode != null)
+                catch (Exception ex)
                 {
-                    foreach (XmlNode ciudadNode in listaCiudadesNode.ChildNodes)
+                    if (firstError == null)
                     {
-                        if (ciudadNode.NodeType == XmlNodeType.Element && ciudadNode.Name == "ciudad")
-                        {
-                            AddCityIfNew(cities, ReadCity(ciudadNode));
-                        }
+                        firstError = Path.GetFileName(file) + ": " + ex.Message;
                     }
                 }
+            }
 
-                XmlNode? robotsNode = configNode.SelectSingleNode("robots");
-                if (robotsNode != null)
+            return firstError;
+        }
+
+        private void ReadFile(string file, DynamicList<City> cities, DynamicList<Robot> robots)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(file);
+
+            XmlNode? configNode = doc.SelectSingleNode("configuracion");
+            if (configNode == null)
+            {
+                throw new Exception("El archivo no tiene la etiqueta raiz <configuracion>.");
+            }
+
+            XmlNode? listaCiudadesNode = configNode.SelectSingleNode("listaCiudades");
+            if (listaCiudadesNode != null)
+            {
+                foreach (XmlNode ciudadNode in listaCiudadesNode.ChildNodes)
                 {
-                    foreach (XmlNode robotNode in robotsNode.ChildNodes)
+                    if (ciudadNode.NodeType == XmlNodeType.Element && ciudadNode.Name == "ciudad")
                     {
-                        if (robotNode.NodeType == XmlNodeType.Element && robotNode.Name == "robot")
-                        {
-                            AddRobotIfNew(robots, ReadRobot(robotNode));
-                        }
+                        AddCityIfNew(cities, ReadCity(ciudadNode));
+                    }
+                }
+            }
+
+            XmlNode? robotsNode = configNode.SelectSingleNode("robots");
+            if (robotsNode != null)
+            {
+                foreach (XmlNode robotNode in robotsNode.ChildNodes)
+                {
+                    if (robotNode.NodeType == XmlNodeType.Element && robotNode.Name == "robot")
+                    {
+                        AddRobotIfNew(robots, ReadRobot(robotNode));
                     }
                 }
             }
@@ -150,6 +172,11 @@ namespace ChapinWarriorsSA
                     int capacidad = int.Parse(child.InnerText.Trim());
 
                     Cell militaryCell = mapMatrix[fila - 1][columna - 1];
+                    if (militaryCell.cell != CellType.Path)
+                    {
+                        throw new Exception("Superposicion: la unidad militar en la fila " + fila + ", columna " + columna + " se coloca sobre " + Describe(militaryCell.cell) + ".");
+                    }
+
                     militaryCell.cell = CellType.Military;
                     militaryCell.combatCapacity = capacidad;
                     military++;
@@ -181,6 +208,19 @@ namespace ChapinWarriorsSA
                 case 'R': return CellType.Resource;
                 default:
                     throw new Exception("Caracter invalido en la malla de la ciudad: '" + c + "'");
+            }
+        }
+
+        private string Describe(CellType type)
+        {
+            switch (type)
+            {
+                case CellType.Civil: return "una unidad civil";
+                case CellType.Resource: return "un recurso";
+                case CellType.Entry: return "un punto de entrada";
+                case CellType.Blocked: return "un muro";
+                case CellType.Military: return "otra unidad militar";
+                default: return "una celda ocupada";
             }
         }
 

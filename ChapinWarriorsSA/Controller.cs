@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace ChapinWarriorsSA
 {
@@ -17,7 +18,11 @@ namespace ChapinWarriorsSA
             string folderPath = Path.Combine(AppContext.BaseDirectory, "XMLfiles");
             data.Cities = new DynamicList<City>();
             data.Robots = new DynamicList<Robot>();
-            xml.ReadFolder(folderPath, data.Cities, data.Robots);
+            string? error = xml.ReadFolder(folderPath, data.Cities, data.Robots);
+            if (error != null)
+            {
+                MessageBox.Show("Error al cargar un archivo\n\n" + error, "ChapinWarriorsSA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         internal int GetCityCount() => data.Cities.counter;
