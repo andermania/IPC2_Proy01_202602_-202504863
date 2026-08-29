@@ -2,7 +2,7 @@ using System;
 
 namespace ChapinWarriorsSA
 {
-    // Nodo del grafo ortogonal: representa una celda transitable de la ciudad
+    // Vertice del grafo ortogonal: representa una celda transitable de la ciudad
     // y apunta a sus 4 vecinos (arriba, abajo, izquierda, derecha).
     public class OrthogonalNode
     {

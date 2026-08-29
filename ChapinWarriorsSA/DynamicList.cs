@@ -7,13 +7,13 @@ namespace ChapinWarriorsSA
     // El nodo no es generico: almacena el dato como object y se castea (T) al leer.
     public class DynamicList<T>
     {
-        private Nodo first = null!;
-        private Nodo last = null!;
+        private Punto first = null!;
+        private Punto last = null!;
         public int counter;
 
         public void Add(T dato)
         {
-            Nodo nuevo = new Nodo(dato);
+            Punto nuevo = new Punto(dato);
 
             if (first == null)
             {
@@ -36,7 +36,7 @@ namespace ChapinWarriorsSA
                 throw new IndexOutOfRangeException("Posicion fuera de rango: " + posicion + " (la lista tiene " + counter + " elementos).");
             }
 
-            Nodo current = first;
+            Punto current = first;
             for (int i = 1; i < posicion; i++)
             {
                 current = current.next!;
@@ -47,7 +47,7 @@ namespace ChapinWarriorsSA
 
         public IEnumerator<T> GetEnumerator()
         {
-            Nodo? current = first;
+            Punto? current = first;
             while (current != null)
             {
                 yield return (T)current.data!;

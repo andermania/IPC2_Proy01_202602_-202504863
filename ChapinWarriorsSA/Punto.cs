@@ -1,11 +1,11 @@
 namespace ChapinWarriorsSA
 {
-    internal class Nodo
+    internal class Punto
     {
         public object? data;
-        public Nodo? next;
+        public Punto? next;
 
-        public Nodo(object? data)
+        public Punto(object? data)
         {
             this.data = data;
         }
